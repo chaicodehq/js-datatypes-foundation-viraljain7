@@ -47,20 +47,84 @@
  */
 export function getChaiOrderLength(order) {
   // Your code here
+
+  //    *   1. getChaiOrderLength(order)
+  //  *      - Pehle .trim() se extra spaces hatao, phir .length se count karo
+  //  *      - Agar order string nahi hai, return -1
+  //  *      - Example: getChaiOrderLength("  masala chai  ") => 11
+  //  *
+
+  if (typeof order !== "string") return -1;
+  return order.trim().length;
 }
 
 export function shoutChaiOrder(order) {
   // Your code here
+  //    *   2. shoutChaiOrder(order)
+  //  *      - Guddu apne helper ko UPPERCASE mein order shout karta hai
+  //  *      - Pehle .trim() karo, phir .toUpperCase()
+  //  *      - Agar order string nahi hai ya trim ke baad empty hai, return ""
+  //  *      - Example: shoutChaiOrder("masala chai") => "MASALA CHAI"
+
+  if (typeof order !== "string") return "";
+
+  order = order.trim();
+  if (order === "") return "";
+
+  return order.toUpperCase();
 }
 
 export function whisperChaiOrder(order) {
   // Your code here
+
+  //    *   3. whisperChaiOrder(order)
+  //  *      - Jab koi secretly order karta hai, lowercase mein likho
+  //  *      - Pehle .trim() karo, phir .toLowerCase()
+  //  *      - Agar order string nahi hai ya trim ke baad empty hai, return ""
+  //  *      - Example: whisperChaiOrder("ADRAK CHAI") => "adrak chai"
+
+  if (typeof order !== "string") return "";
+
+  order = order.trim();
+  if (order === "") return "";
+
+  return order.toLowerCase();
 }
 
 export function hasSpecialIngredient(order, ingredient) {
   // Your code here
+
+  //  *   4. hasSpecialIngredient(order, ingredient)
+  //  *      - Check karo ki order mein koi special ingredient hai ya nahi
+  //  *      - Dono ko .toLowerCase() karo, phir .includes() use karo
+  //  *      - Agar koi bhi string nahi hai, return false
+  //  *      - Example: hasSpecialIngredient("Elaichi Masala Chai", "elaichi") => true
+
+  if (typeof order !== "string" || typeof ingredient !== "string") return false;
+
+  order = order.toLowerCase();
+  ingredient = ingredient.toLowerCase();
+  return order.includes(ingredient);
+
 }
 
 export function getFirstAndLastChar(order) {
   // Your code here
+//  *   5. getFirstAndLastChar(order)
+//  *      - .charAt(0) se pehla character aur .at(-1) se aakhri character nikalo
+//  *      - Pehle .trim() karo
+//  *      - Return: { first, last }
+//  *      - Agar order string nahi hai ya trim ke baad empty hai, return null
+//  *      - Example: getFirstAndLastChar("masala chai") => { first: "m", last: "i" }
+
+
+if(typeof order !=="string") return null;
+
+order=order.trim();
+if(order ==="") return null;
+
+let firstChar=order.charAt(0);
+let lastChar=order.at(-1);
+
+return {first:firstChar,last:lastChar}
 }
